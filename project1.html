@@ -1,0 +1,236 @@
+<!DOCTYPE HTML>
+<HTML lnag="ko">
+    <head>
+        <title>프로젝트</title>
+        <meta charset="UTF-8">
+        <style>
+        .img-people{
+            position:relative;
+            left:100px;
+            bottom:-530px;
+            margin-left:0px;
+            margin-top:0px;
+            z-index:1;
+        }
+        
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><!--제이쿼리 스크립트-->
+        
+        <link rel="stylesheet" type="text/css" href="mystyle1.css">
+        <link rel="stylesheet" type="text/css" href="animate.css"><!--여러 animation 모아둔곳-->
+        <script type='text/javascript' src="Photoposition.js"></script><!--교수님들움직임 구현-->
+        <script type='text/javascript' src="screenChange.js"></script><!--화면 전환 구현 시작-겜중화면-마지막-->
+        <script type='text/javascript' src="Keyboard.js"></script><!--키보드 이벤트구현-->
+        <script type='text/javascript' src="time.js"></script><!--시간 계산-->
+        <script type='text/javascript' src="collision.js"></script><!--충돌구현-->
+        <script type='text/javascript' src="message.js"></script><!--메세지 떨어지는거 구현-->
+        <script type='text/javascript' src="calculation.js"></script><!--학점계산 - 자료구조 -->
+        <script type='text/javascript' src="changeitem.js"></script><!--학점계산 - 자료구조 -->
+        
+       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <!--bootstraps-->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+        
+        <div id="bg_style"><!--게임 시작화면 감싸는 부분-->
+            <div>
+                <img class="img_style" src="image/mainscreen.gif" alt="mainscreen">
+            </div>
+            <div>
+                <img class="jo_photo" src="image/jo.gif" alt="josehyung">
+                <img class="sang_photo" src="image/sang.gif" alt="sanggwi">
+            </div>
+
+            <div id="level_mode"><!--레벨 조정 부분-->
+                <div id="hard_click">
+                    <label><input type="radio" name="level" value="hard">Hard Mode</label>
+                </div>
+                <div id="normal_click">
+                    <label><input type="radio" name="level" checked="checked" value="normal">Normal Mode</label>
+                </div>
+            </div>
+
+            <div id="time_id"><!--게임 시간 입력 부분-->
+                 <input type="text" placeholder="Time set" id="time_set" size="10">
+                 <input type="submit" id="time_button" value="시간입력">
+            </div>
+            <div id="name_id"><!--게임 아이디 입력 부분-->
+                <input type="text" placeholder="Game ID" id="user_id" size="10">
+                <input type="submit" id="id_button" value="ID입력">
+            </div>
+
+            <div id="btn_start">
+                <button id="game_exp" type="button" class="btn btn-outline-dark">게임 설명(동영상)</button>
+                <button id="game_start" type="button" class="btn btn-outline-dark">Game Start</button>
+            </div>
+            <div id="sub2_turn">
+                <div id="viewName"></div>
+                <div id="viewgTime"></div>
+            </div>
+
+            <div id="progress_g">
+                <p>게임 진행중</br>(난이도 변경 불가)</p>
+                <button id="game_clear" type="button" class="btn btn-outline-warning">처음부터 시작</button>
+            </div>
+        </div>
+        
+        <div id="sub2_style"><!--게임 설명 비디오-->
+            <h2 class="pont_position">How to play?</h2>
+            <button id="game_expturn" type="button" class="btn btn-outline-secondary">back</button>
+            <video id="video" class="animated flipInY" preload="auto" controls="controls" muted="muted" volume="0">
+                <source src="video/movie.mp4">
+            </video>
+            <h4> 게임 설명 및 조작법  </h4>
+           <div class="how">
+                &nbsp;<i class="fa fa-spinner fa-spin fa-lg fa-lg"></i>
+                &nbsp; 떨어지는 학점을 시간내에 캐릭터를 좌우로 움직여 먹는 게임 
+                &nbsp;<i class="fa fa-spinner fa-spin fa-lg fa-lg"></i>
+                <br><br>
+                
+                <img class="shift-img" src="image/shift.jpg" alt="position-img">
+                <div class="shift-ul">
+                    <ul>아이템(Item)
+                        <li>A+ : 4.5 </li>
+                        <li><font color="red">A</font> &nbsp; : 4.0 </li>
+                        <li><font color="plum">B+</font> : 3.5 </li>
+                        <li><font color="blue">B</font> &nbsp; : 3.0 </li>
+                    </ul>
+                    <ul>
+                        <li><font color="purple">C+</font> : 2.5  </li>
+                        <li><font color="orange">C</font> &nbsp; : 2.0  </li>
+                        <li><font color="green">D</font> &nbsp; : 1.0</li>
+                        <li><font color="salmon">F</font> &nbsp; : 0</li>
+                    </ul>
+                    <ul>
+                        <li><img src="image/item1.png" alt="img1">(교수님사랑) : A+ 로변환</li>
+                        <li><img src="image/item2.png" alt="img2">(교수님사랑) : 스코어초기화</li>
+                        <li class = "hi"></li>
+                    </ul>
+                </div>
+             </div>
+        </div>
+
+        <div id="sub1_turn">
+            <div id="sub_style"><!--교수님 사진(상귀) 움직임 및 키보드제어 사진-->
+            
+                <div>
+                    <img id="talk1_id" src="image/score.jpg" class="talk">
+                </div>
+                <div>
+                    <img id="sanggwi" src="image/photo1.png" class="myphoto1">
+                </div>
+                <div>
+                    <img id="people1" src="image/people.png" class="img-people">
+                </div>
+                <div>
+                    <img id="picture1" src="image/subimg.png">
+                </div>
+            </div>
+
+            <div id="sub3_style"><!--교수님 사진(조세) 움직임 및 키보드제어 사진-->
+                <div>
+                    <img id="talk2_id" src="image/score.jpg" class="talk">
+                </div>
+                <div>
+                    <img id="zosehyung" src="image/photo2.png" class="myphoto2">
+                </div>
+                <div>
+                    <img id="people1" src="image/people.png" class="img-people">
+                </div>
+                <div>
+                    <img id="picture1" src="image/subimg.png">
+                </div>
+            </div>
+        </div>
+
+        <div id="sub_turn">
+            <div id="main_score"><!-- 학점 사진-->
+                <p id="img_alp" class="IMGN">A+</p>
+                <p id="img_alp0" class="IMGN0">A</p>
+                <p id="img_alp1" class="IMGN1">B</p>
+                <p id="img_alp2" class="IMGN2">C</p>
+                <p id="img_alp3" class="IMGN3">D</p>
+                <p id="img_alp4" class="IMGN4">B+</p>
+                <p id="img_alp5" class="IMGN5">C+</p>
+                <p id="img_alp6" class="IMGN6">F</p>
+                <!--<p id="img_alp7" class="IMGN7"><i class="fa fa-book" aria-hidden="true"></i></p>-->
+                <img id="img_alp7" src="image/item1.png" alt="img1" >
+                <img id="img_alp8" src="image/item2.png" alt="img2" >
+            </div>
+            
+            <div id="advice" class="card" style="width: 17rem;"><!--점수계산도움말-->
+                <div class="card-body">
+                    <h4 class="card-title">Score calculation</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Score(students)</h6>
+                    <p class="card-text">Here is how to calculate the score.</p>
+                    <ul>
+                        <li>A+ : 4.5 </li>
+                        <li>A &nbsp; : 4.0 </li>
+                        <li>B+ : 3.5 </li>
+                        <li>B &nbsp; : 3.0 </li>
+                    </ul>
+                    <ul>
+                        <li>C+ : 2.5  </li>
+                        <li>C &nbsp; : 2.0  </li>
+                        <li>D &nbsp; : 1.0</li>
+                        <li>F &nbsp; : 0</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="but_return">
+                <button id="main_return" type="button" class="btn btn-outline-danger">메인 화면으로</button>
+            </div>
+            
+            <div id="ViewTimer"></div><!--시간 확인-->
+            <div id="Viewgameid"></div><!--아이디 확인-->
+            <div id="ViewScore"></div><!-- 점수 확인 -->
+        </div>
+
+        <div>
+            <p id="test_alp0">A+</p>
+            <p id="test_alp1">A+</p>
+            <p id="test_alp2">A+</p>
+            <p id="test_alp3">A+</p>
+            <p id="test_alp4">A+</p>
+            <p id="test_alp5">A+</p>
+            <p id="test_alp6">A+</p>
+        </div>
+
+        
+        <div id="sub4_style">
+            <h1 class ="animated rubberBand">Score board</h1>
+            <button type="button" class ="animated jackInTheBox" id="showbutton" >성적확인</button>
+            <div class="card bg-dark text-white">
+                <img class="card-img" src="image/board.jpg" alt="Card image">
+                <div class="card-img-overlay">
+                    <br>
+                    <h4 class="grade">최종 등급:  </h4>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <h4 class="grade">최종 학점: </h4>
+                </div>
+            </div>
+          
+           <div class="but">
+                <button type="button" id="button1" class ="animated zoomInLeft">처음 화면</button>
+                <button type="button" id="button2" class ="animated zoomInLeft">새 게임</button>
+
+           </div>
+        </div>
+        
+        <div id="Viewfinal"></div>
+        <div id="Viewgrade"></div>
+
+    </body>
+</html>

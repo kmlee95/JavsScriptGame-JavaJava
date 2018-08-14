@@ -1,0 +1,395 @@
+.body{
+    width:600px;
+}
+#picture1{
+    position:absolute;
+    top:150px
+}
+.myphoto1{/*김상귀 움직임*/
+    position:absolute; 
+    top:0px; 
+    left:10px;
+}
+.myphoto2{/*조세형 움직임*/
+    position:absolute; 
+    top:0px; 
+    left:10px;
+}
+.talk{
+    position:absolute;
+    top:10px;
+    left:150px;
+    z-index:1;
+}
+/*메인 시작화면*/
+.jo_photo{
+    position:absolute;
+    left:255px;
+    top:200px;
+}
+.sang_photo{
+    position:absolute;
+    left:430px;
+    top:200px;
+}
+#game_exp{
+    position:relative;
+    left: 310px;
+    bottom: 80px;
+}
+#game_start{
+    position:relative;
+    left: 320px;
+    bottom:80px;
+}
+#level_mode>div{
+    display:inline;
+    position:relative;
+    left:260px;
+    top:-200px;
+}
+
+#time_id{
+    position: absolute;
+    left: 385px;
+    top:500px;
+}
+#name_id{
+    position: absolute;
+    left: 400px;
+    top:460px;
+}
+label {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+#progress_g{
+    position:relative;
+    left: 290px;
+    bottom: 450px;
+}
+
+.img_style{/*전체 이미지 테두리 배경*/
+    border:3px solid #B18904;
+}
+
+#video{/*비디오 위치 설정*/
+    position:relative;
+    left:50px;
+    width:80%;
+    height:400px; 
+}
+.shift-img{
+    position:relative;
+    bottom:15px
+}
+.shift-ul{
+    position: relative;
+    left: 170px;
+    bottom: 120px;
+    font-size: 0.9rem;
+}
+.shift-ul > ul{
+    display:inline-block;
+}
+.hi {
+    visibility: hidden;
+}
+
+#sub2_style{
+    position: relative;
+    border: 1px solid #58FAF4;
+    height: 630px;
+    width: 633px;
+    margin: 0px;
+}
+.pont_position{
+    position:relative;
+    top:20px;
+    left:100px;
+    z-index:1;
+    width: 70%;
+    font-size: 40px;
+    text-align: center;
+    color: #A764A7;
+    border: 2px solid pink;
+    background-color: ivory;
+    border-radius: 10px;
+}
+.how{
+    background-color: #FAFAB6;
+    height: 21%;
+}
+#game_expturn{
+    position:absolute;
+    left:10px;
+    top:25px;
+    z-index:2;
+}
+/*메인화면 닉네임 위치*/
+#viewName{
+    position:relative;
+    left:400px;
+    bottom:210px;
+}
+#viewgTime{
+    position:relative;
+    left:400px;
+    bottom:190px;
+}
+/*시간 초 위치*/
+#ViewTimer{
+    position:absolute;
+    left:650px;
+    top:30px;
+}
+/*게임 아이디 위치*/
+#Viewgameid{
+    position:absolute;
+    left:650px;
+    top:70px;
+}
+/*스코어 위치*/
+#ViewScore{
+    position:absolute;
+    left:650px;
+    top:100px;
+}
+/*점수 계산방법설명 css초기화*/
+
+.card-body > ul{
+    display:inline-block;
+}
+#advice{
+    position:absolute;
+    left: 600px;
+    top: 150px;
+}
+#main_return{
+    position:absolute;
+    left:660px;   
+}
+.but_return{
+    position:absolute;
+    top:480px;
+}
+/*이미지 초기위치(알파벳 설정) css*/
+#img_alp{
+    position:absolute;
+    bottom:500px;
+    left: 10px;
+    font-size:20px;
+    color:black;
+    z-index:1;
+}
+#img_alp0{
+    position:absolute;
+    bottom:500px;
+    left: 20px;
+    font-size:20px;
+    color:red;
+    z-index:1;
+}
+#img_alp1{
+    position:absolute;
+    bottom:500px;
+    left: 40px;
+    font-size:20px;
+    color:blue;
+    z-index:1;
+}
+#img_alp2{
+    position:absolute;
+    bottom:500px;
+    left: 60px;
+    font-size:20px;
+    color:orange;
+    z-index:1;
+}
+#img_alp3{
+    position:absolute;
+    bottom:500px;
+    left: 80px;
+    font-size:20px;
+    color:green;
+    z-index:1;
+}
+#img_alp4{
+    position:absolute;
+    bottom:500px;
+    left: 100px;
+    font-size:20px;
+    color:plum;
+    z-index:1;
+}
+#img_alp5{
+    position:absolute;
+    bottom:500px;
+    left: 120px;
+    font-size:20px;
+    color:purple;
+    z-index:1;
+}
+#img_alp6{
+    position:absolute;
+    bottom:500px;
+    left: 140px;
+    font-size:20px;
+    color:salmon;
+    z-index:1;
+}
+#img_alp7{
+    position:absolute;
+    bottom:500px;
+    left: 160px;
+    font-size:20px;
+    color:#00ffff;
+    z-index:1;
+}
+
+#img_alp8{
+    position:absolute;
+    bottom:500px;
+    left: 160px;
+    font-size:20px;
+    color:#00ffff;
+    z-index:1;
+}
+#test_alp0{
+    position:absolute;
+    bottom:500px;
+    left: 160px;
+    font-size:20px;
+    color:#000000;
+    z-index:1;
+}
+#test_alp1{
+    position:absolute;
+    bottom:500px;
+    left: 160px;
+    font-size:20px;
+    color:#000000;
+    z-index:1;
+}
+
+#test_alp2{
+    position:absolute;
+    bottom:500px;
+    left: 160px;
+    font-size:20px;
+    color:#000000;
+    z-index:1;
+}
+#test_alp3{
+    position:absolute;
+    bottom:500px;
+    left: 160px;
+    font-size:20px;
+    color:#000000;
+    z-index:1;
+}
+#test_alp4{
+    position:absolute;
+    bottom:500px;
+    left: 160px;
+    font-size:20px;
+    color:#000000;
+    z-index:1;
+}
+#test_alp5{
+    position:absolute;
+    bottom:500px;
+    left: 160px;
+    font-size:20px;
+    color:#000000;
+    z-index:1;
+}
+#test_alp6{
+    position:absolute;
+    bottom:500px;
+    left: 160px;
+    font-size:20px;
+    color:#000000;
+    z-index:1;
+}
+
+
+/*witdh :630 height 630 left 362 top 178 right 994 bottom 810*/
+
+/*마지막 페이지 css*/
+#sub4_style{
+    width: 602px;
+    height: 600px;
+    border:1px solid #58FAF4;
+}
+
+h1{
+    margin-top:20px;
+    font-size: 3em;
+    text-align: center;
+    border: 2px solid brown;
+    background-color: ivory;
+    width: 300px;
+    border-radius: 10px;
+    margin: 30px auto;
+    margin-left: 149px;
+}
+#sub4_style .card {
+   
+    margin-left: 15%;
+    margin-right: 10%;
+    width: 70%;
+    margin-bottom: 10%;
+}
+.but{
+    margin-left: 30%;
+    margin-right: 15%;
+    
+}
+h4{
+    visibility: hidden;
+    margin-left: 10%;
+}
+#showbutton{
+    margin-left: 40%;
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    color: white;
+    background-color: purple;
+    border-radius: 10px;
+}
+#button1{
+    margin-right: 22%;
+    float: left;
+    background-color: white;
+    border: 1px solid green;
+    border-radius: 5px;
+    color: green;
+    padding:5px;
+}
+#button2{
+    background-color: white;
+    border: 1px solid blue;
+    border-radius: 5px;
+    color: blue;
+    padding:5px;
+}
+
+#Viewfinal{
+    position: absolute;
+    font-size: 30px;    
+    left: 350px;
+    top: 150px;
+    color: white;
+    visibility: hidden;
+}
+#Viewgrade{
+    position: absolute;
+    font-size: 30px;
+    left: 350px;
+    top: 275px;
+    color: white;
+    visibility: hidden;
+}
